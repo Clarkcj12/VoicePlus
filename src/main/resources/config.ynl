@@ -1,0 +1,6 @@
+#This the configuration for VoicePlus
+#Authors: Clarkcj (Corey)
+#Version 0.0.1
+
+MServer: voice.domnian.com
+MPort: 64738
