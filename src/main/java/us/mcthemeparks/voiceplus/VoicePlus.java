@@ -15,7 +15,7 @@ import java.io.IOException;
  * void any agreements with you, the third party. Thanks
  * ==================================================================
  */
-@SuppressWarnings({"unused", "deprecated"})
+@SuppressWarnings({"unused", "deprecated", "expression"})
 public class VoicePlus extends JavaPlugin {
     public static VoicePlus instance;
 
@@ -25,7 +25,8 @@ public class VoicePlus extends JavaPlugin {
         enableMessage();
         if (VoicePlusConfig.enableMetrics) startMetrics();
         new VoicePlusConfig();
-        ACF.createManager(this).registerCommand(new VoicePlusCommands());
+        BukkitCommandManager manager = new BukkitCommandManager(this);
+        manager.registerCommand(new VoicePlusCommands());
     }
 
     private void enableMessage() {
@@ -33,11 +34,11 @@ public class VoicePlus extends JavaPlugin {
         getLogger().info("| Plugin: VoicePlus                    |");
         getLogger().info("| Created By: Clarkcj                  |");
         getLogger().info("| Contributions By: willies952002      |");
-        getLogger().info("| Version: 2.7.2                       |");
+        getLogger().info("| Version: 2.7.3                       |");
         getLogger().info("|======================================|");
     }
 
-    private void startMetrics() {
+     private void startMetrics() {
         try {
             getLogger().info("Starting Metrics");
             new org.mcstats.Metrics(this).start();
@@ -49,6 +50,5 @@ public class VoicePlus extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
     }
 }
